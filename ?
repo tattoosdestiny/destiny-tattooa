@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destiny Barreira | Fine Artist & Tattooer | Destiny Tattoos & Femme Fatale</title>
+    
+    <!-- Google Fonts: UnifrakturMaguntia for Vintage Gothic Headings & Inter for body text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'base-dark': '#121815',
+                        'base-card': '#1a2420',
+                        'base-card-hover': '#22302a',
+                        'parchment': '#dfcbb0',
+                        'parchment-light': '#f4ebd0',
+                        'gold-accent': '#c5a880',
+                        'forest-deep': '#0d1310',
+                        'forest-green': '#1f2d26',
+                        'muted-teal': '#283c34'
+                    },
+                    fontFamily: {
+                        gothic: ['UnifrakturMaguntia', 'cursive'],
+                        cinzel: ['Cinzel', 'serif'],
+                        inter: ['Inter', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'gothic': '0 10px 30px -5px rgba(0, 0, 0, 0.8), 0 0 15px rgba(31, 45, 38, 0.5)',
+                        'gold-glow': '0 0 20px rgba(197, 168, 128, 0.25)'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            background-color: #121815;
+            color: #dfcbb0;
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4, .font-gothic {
+            font-family: 'UnifrakturMaguntia', cursive;
+        }
+        .font-cinzel {
+            font-family: 'Cinzel', serif;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #121815;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #283c34;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3a5248;
+        }
+        /* Subtle background anatomical engraving pattern overlay */
+        .gothic-pattern {
+            background-image: radial-gradient(rgba(197, 168, 128, 0.08) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .ornate-border {
+            border: 1px solid rgba(197, 168, 128, 0.3);
+            position: relative;
+        }
+        .ornate-border::before, .ornate-border::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border: 1px solid #c5a880;
+        }
+        .ornate-border::before { top: -4px; left: -4px; }
+        .ornate-border::after { bottom: -4px; right: -4px; }
+    </style>
+</head>
+<body class="bg-base-dark text-parchment antialiased selection:bg-gold-accent selection:text-base-dark">
+
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-base-dark/95 backdrop-blur-md border-b border-gold-accent/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#hero" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-full border border-gold-accent/50 flex items-center justify-center bg-base-card group-hover:border-gold-accent transition-colors">
+                    <i class="fa-solid fa-skull text-gold-accent text-sm"></i>
+                </div>
+                <div>
+                    <span class="font-gothic text-xl sm:text-2xl tracking-wide text-parchment-light block">Destiny Tattoos</span>
+                    <span class="text-[10px] text-gold-accent tracking-widest uppercase block font-cinzel">Femme Fatale • MHC Alum</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-xs uppercase tracking-widest font-cinzel text-parchment">
+                <a href="#artist" class="hover:text-gold-accent transition-colors">The Artist</a>
+                <a href="#gallery" class="hover:text-gold-accent transition-colors">Fine Arts & Design</a>
+                <a href="#tattoos" class="hover:text-gold-accent transition-colors">Tattooing & Studio</a>
+                <a href="#contact" class="hover:text-gold-accent transition-colors">Booking & Contact</a>
+            </nav>
+
+            <!-- CTA Booking Button -->
+            <div class="hidden md:block">
+                <a href="#contact" class="px-5 py-2.5 rounded border border-gold-accent/60 bg-base-card text-gold-accent font-cinzel text-xs uppercase tracking-widest hover:bg-gold-accent hover:text-base-dark transition-all shadow-gothic">
+                    Book Consultation
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-gold-accent focus:outline-none p-2">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Modal -->
+        <div id="mobile-menu" class="hidden md:hidden bg-base-dark/98 border-b border-gold-accent/30 px-6 py-6 space-y-4 font-cinzel text-xs uppercase tracking-widest">
+            <a href="#artist" class="block hover:text-gold-accent transition-colors mobile-link">The Artist</a>
+            <a href="#gallery" class="block hover:text-gold-accent transition-colors mobile-link">Fine Arts & Design</a>
+            <a href="#tattoos" class="block hover:text-gold-accent transition-colors mobile-link">Tattooing & Studio</a>
+            <a href="#contact" class="block hover:text-gold-accent transition-colors mobile-link">Booking & Contact</a>
+            <div class="pt-2">
+                <a href="#contact" class="block text-center w-full py-3 rounded border border-gold-accent bg-base-card text-gold-accent font-cinzel text-xs uppercase tracking-widest shadow-gothic mobile-link">
+                    Book Consultation
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-24 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden gothic-pattern">
+        <!-- Atmospheric lighting / decorative elements -->
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-base-dark/60 to-base-dark pointer-events-none"></div>
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-forest-green/30 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-6xl mx-auto text-center relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Hero Left: Ornamental Intro -->
+            <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-gold-accent/40 bg-base-card text-gold-accent text-xs tracking-widest font-cinzel uppercase">
+                    <i class="fa-solid fa-feather text-[10px]"></i>
+                    <span>Medicine Hat, Alberta • Est. 2012</span>
+                </div>
+                
+                <h1 class="font-gothic text-5xl sm:text-7xl tracking-wider text-parchment-light leading-tight">
+                    Destiny Barreira
+                </h1>
+                
+                <p class="text-lg sm:text-xl text-parchment/90 font-light leading-relaxed font-inter">
+                    Multidisciplinary fine artist, BAA Visual Communications & Fine Art graduate from Medicine Hat College, co-owner of Femme Fatale Tattoo Collective, and creator of Destiny Tattoos.
+                </p>
+
+                <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
+                    <a href="#tattoos" class="px-8 py-3.5 rounded bg-base-card border border-gold-accent/60 text-gold-accent font-cinzel text-xs uppercase tracking-widest hover:bg-gold-accent hover:text-base-dark transition-all shadow-gothic">
+                        View Tattoo Portfolio
+                    </a>
+                    <a href="#gallery" class="px-8 py-3.5 rounded border border-parchment/30 text-parchment font-cinzel text-xs uppercase tracking-widest hover:bg-parchment/10 transition-all">
+                        Fine Art & Design
+                    </a>
+                </div>
+
+                <div class="pt-6 grid grid-cols-3 gap-4 border-t border-gold-accent/20 max-w-md mx-auto lg:mx-0">
+                    <div>
+                        <span class="block font-gothic text-3xl text-gold-accent">15+</span>
+                        <span class="text-xs text-parchment/70 uppercase tracking-wider font-cinzel">Years Experience</span>
+                    </div>
+                    <div>
+                        <span class="block font-gothic text-3xl text-gold-accent">BAA</span>
+                        <span class="text-xs text-parchment/70 uppercase tracking-wider font-cinzel">Visual Arts Grad</span>
+                    </div>
+                    <div>
+                        <span class="block font-gothic text-3xl text-gold-accent">Co-Owner</span>
+                        <span class="text-xs text-parchment/70 uppercase tracking-wider font-cinzel">Femme Fatale</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Right: Gothic Card Showcase Visual matching Gift Certificate style -->
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="relative w-full max-w-md">
+                    <!-- Ornamental card frame matching gift certificates -->
+                    <div class="absolute -inset-2 bg-gradient-to-r from-forest-green to-muted-teal rounded-lg blur opacity-40"></div>
+                    <div class="relative bg-base-card border-2 border-gold-accent/50 rounded-lg p-6 shadow-gothic overflow-hidden">
+                        <!-- Card header ornament -->
+                        <div class="absolute top-0 right-0 p-4 opacity-15 text-gold-accent text-5xl pointer-events-none">
+                            <i class="fa-solid fa-moon"></i>
+                        </div>
+                        
+                        <div class="space-y-6 text-left relative z-10">
+                            <div class="flex items-center justify-between border-b border-gold-accent/30 pb-4">
+                                <span class="font-gothic text-2xl tracking-wide text-parchment-light">Destiny Tattoos</span>
+                                <span class="text-xs text-gold-accent font-cinzel">Medicine Hat, AB</span>
+                            </div>
+
+                            <div class="space-y-2 text-center py-2">
+                                <h3 class="font-cinzel text-lg text-gold-accent font-semibold tracking-wide">• The Gift That Lasts A Lifetime •</h3>
+                                <p class="text-xs text-parchment/80 leading-relaxed font-inter pt-1">
+                                    Specializing in custom illustrative tattoos, anatomical realism, macabre art, fine-line botanicals, and dark neo-traditional pieces.
+                                </p>
+                            </div>
+
+                            <div class="bg-base-dark p-4 rounded border border-gold-accent/30 space-y-2 text-xs">
+                                <div class="flex items-center space-x-2 text-parchment">
+                                    <i class="fa-solid fa-location-dot text-gold-accent"></i>
+                                    <span>Femme Fatale Tattoo Collective</span>
+                                </div>
+                                <div class="flex items-center space-x-2 text-parchment/70 pl-5">
+                                    <span>529c Princess Ave, Medicine Hat, AB</span>
+                                </div>
+                                <div class="flex items-center space-x-2 text-parchment pt-1">
+                                    <i class="fa-solid fa-phone text-gold-accent"></i>
+                                    <span>(403) 928-3775</span>
+                                </div>
+                            </div>
+
+                            <div class="pt-2 flex items-center justify-between text-xs font-cinzel text-gold-accent">
+                                <span>@destinytattoos</span>
+                                <span class="px-2.5 py-1 rounded bg-forest-green border border-gold-accent/40 text-parchment-light">Safe & Inclusive Space</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="artist" class="py-24 px-4 sm:px-6 lg:px-8 bg-base-card/40 relative border-t border-gold-accent/20">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-xs uppercase font-cinzel text-gold-accent tracking-widest">Professional Background & Ethos</span>
+                <h2 class="font-gothic text-4xl sm:text-5xl text-parchment-light">The Artist Behind the Needle</h2>
+                <div class="w-24 h-0.5 bg-gold-accent/50 mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Artist Bio Text -->
+                <div class="lg:col-span-7 space-y-6 text-parchment/90 leading-relaxed font-inter">
+                    <p class="text-base sm:text-lg text-parchment-light font-light">
+                        As a proud graduate of Medicine Hat College holding a <strong class="text-white font-medium">Bachelor of Applied Arts in Visual Communications and Fine Art and Design</strong>, my artistic foundation spans deep traditional printmaking, digital design, anatomical illustration, and fine art painting.
+                    </p>
+                    <p>
+                        With over 15 years immersed in professional tattooing and creative arts, I approach skin as a living canvas with the same reverence, precision, and compositional mastery as classical fine art. My work frequently explores macabre elegance, botanical specimens, anatomical studies, and gothic iconography.
+                    </p>
+                    <p>
+                        As co-owner of <strong class="text-white font-medium">Femme Fatale Tattoo Collective</strong> (located at 529c Princess Ave in Medicine Hat), I am deeply committed to cultivating a safe, trauma-informed, and entirely inclusive studio environment where every client is respected, empowered, and celebrated.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                        <div class="p-4 rounded bg-base-dark border border-gold-accent/30 space-y-2">
+                            <div class="flex items-center space-x-3 text-gold-accent">
+                                <i class="fa-solid fa-graduation-cap text-lg"></i>
+                                <h4 class="font-cinzel font-semibold text-parchment-light text-sm">Medicine Hat College</h4>
+                            </div>
+                            <p class="text-xs text-parchment/70">BAA in Visual Communications & Fine Art and Design. Rigorous academic grounding in visual theory and technique.</p>
+                        </div>
+                        <div class="p-4 rounded bg-base-dark border border-gold-accent/30 space-y-2">
+                            <div class="flex items-center space-x-3 text-gold-accent">
+                                <i class="fa-solid fa-shield-heart text-lg"></i>
+                                <h4 class="font-cinzel font-semibold text-parchment-light text-sm">Femme Fatale Collective</h4>
+                            </div>
+                            <p class="text-xs text-parchment/70">Co-owner and operator. Fostering a welcoming, secure, and professional sanctuary for collaborative body art.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Artist Visual / Quote Card -->
+                <div class="lg:col-span-5">
+                    <div class="bg-base-dark border-2 border-gold-accent/60 p-8 rounded-lg shadow-gothic relative overflow-hidden text-center space-y-6">
+                        <div class="absolute -right-10 -bottom-10 opacity-10 text-gold-accent text-9xl pointer-events-none">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+
+                        <div class="w-20 h-20 mx-auto rounded-full border-2 border-gold-accent/60 flex items-center justify-center bg-base-card shadow-gold-glow">
+                            <i class="fa-solid fa-palette text-gold-accent text-2xl"></i>
+                        </div>
+
+                        <blockquote class="font-cinzel italic text-parchment-light text-lg leading-relaxed">
+                            "Art is the translation of the unseen into a lasting visual truth. Whether on paper, screen, or skin, every piece carries intention and soul."
+                        </blockquote>
+
+                        <div class="border-t border-gold-accent/30 pt-4">
+                            <span class="block font-gothic text-2xl text-parchment-light tracking-wide">Destiny Barreira</span>
+                            <span class="text-xs text-gold-accent tracking-wider uppercase font-cinzel">Fine Artist & Master Tattooer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-24 px-4 sm:px-6 lg:px-8 relative gothic-pattern">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-xs uppercase font-cinzel text-gold-accent tracking-widest">Portfolio & Archives</span>
+                <h2 class="font-gothic text-4xl sm:text-5xl text-parchment-light">Fine Arts, Design & Publications</h2>
+                <div class="w-24 h-0.5 bg-gold-accent/50 mx-auto"></div>
+                <p class="text-parchment/80 text-sm font-inter">
+                    Exploring digital graphic design, classical printmaking, anatomical studies, and academic fine art from Medicine Hat College.
+                </p>
+            </div>
+
+            <!-- Category Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12 font-cinzel text-xs uppercase tracking-widest">
+                <button data-filter="all" class="filter-btn px-5 py-2.5 rounded bg-base-card border border-gold-accent text-gold-accent transition-all shadow-gothic">
+                    All Works
+                </button>
+                <button data-filter="fine-art" class="filter-btn px-5 py-2.5 rounded bg-base-dark border border-gold-accent/40 text-parchment hover:border-gold-accent transition-all">
+                    Fine Arts & College
+                </button>
+                <button data-filter="printmaking" class="filter-btn px-5 py-2.5 rounded bg-base-dark border border-gold-accent/40 text-parchment hover:border-gold-accent transition-all">
+                    Printmaking & Anatomy
+                </button>
+                <button data-filter="design" class="filter-btn px-5 py-2.5 rounded bg-base-dark border border-gold-accent/40 text-parchment hover:border-gold-accent transition-all">
+                    Digital Design & Pubs
+                </button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div id="art-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Item 1 -->
+                <div class="art-item group relative bg-base-card rounded-lg overflow-hidden border border-gold-accent/30 shadow-gothic cursor-pointer" data-category="fine-art" onclick="openModal('Anatomical Dualism Study', 'Graphite and digital mixed media exploring the duality of human form and botanical motifs. Created during studies for the Bachelor of Applied Arts at Medicine Hat College.', 'https://placehold.co/800x600/1a2420/dfcbb0?text=Anatomical+Dualism')">
+                    <div class="aspect-video overflow-hidden relative">
+                        <img src="https://placehold.co/600x400/1a2420/dfcbb0?text=Anatomical+Dualism" alt="Anatomical Dualism Study" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-base-dark/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="px-4 py-2 rounded bg-base-card border border-gold-accent text-gold-accent font-cinzel text-xs uppercase tracking-widest">View Details</span>
+                        </div>
+                    </div>
+                    <div class="p-5 space-y-2">
+                        <span class="text-xs uppercase font-cinzel text-gold-accent tracking-wider">Fine Art / College Study</span>
+                        <h3 class="font-gothic text-xl text-parchment-light group-hover:text-gold-accent transition-colors">Anatomical Dualism Study</h3>
+                        <p class="text-xs text-parchment/70 font-inter">Graphite & Digital Mixed Media</p>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="art-item group relative bg-base-card rounded-lg overflow-hidden border border-gold-accent/30 shadow-gothic cursor-pointer" data-category="printmaking" onclick="openModal('Botanical Intaglio Print', 'Traditional copperplate etching exploring Victorian botanical specimens and dark romanticism. Exhibited in regional fine art showcases.', 'https://placehold.co/800x600/1a2420/dfcbb0?text=Botanical+Intaglio')">
+                    <div class="aspect-video overflow-hidden relative">
+                        <img src="https://placehold.co/600x400/1a2420/dfcbb0?text=Botanical+Intaglio" alt="Botanical Intaglio Print" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-base-dark/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="px-4 py-2 rounded bg-base-card border border-gold-accent text-gold-accent font-cinzel text-xs uppercase tracking-widest">View Details</span>
+                        </div>
+                    </div>
+                    <div class="p-5 space-y-2">
+                        <span class="text-xs uppercase font-cinzel text-gold-accent tracking-wider">Printmaking</span>
+                        <h3 class="font-gothic text-xl text-parchment-light group-hover:text-gold-accent transition-colors">Botanical Intaglio Print</h3>
+                        <p class="text-xs text-parchment/70 font-inter">Copperplate Etching & Hand-Pulled Print</p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="art-item group relative bg-base-card rounded-lg overflow-hidden border border-gold-accent/30 shadow-gothic cursor-pointer" data-category="design" onclick="openModal('Destiny Tattoos Brand Identity', 'Complete visual branding package including custom gothic lettering, promotional collateral, gift certificate design, and digital assets.', 'https://placehold.co/800x600/1a2420/dfcbb0?text=Brand+Identity')">
+                    <div class="aspect-video overflow-hidden relative">
+                        <img src="https://placehold.co/600x400/1a2420/dfcbb0?text=Brand+Identity" alt="Destiny Tattoos Brand Identity" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-base-dark/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="px-4 py-2 rounded bg-base-card border border-gold-accent text-gold-accent font-cinzel text-xs uppercase tracking-widest">View Details</span>
+                        </div>
+                    </div>
+                    <div class="p-5 space-y-2">
+                        <span class="text-xs uppercase font-cinzel text-gold-accent tracking-wider">Digital Design & Publications</span>
+                        <h3 class="font-gothic text-xl text-parchment-light group-hover:text-gold-accent transition-colors">Brand Identity & Collateral</h3>
+                        <p class="text-xs text-parchment/70 font-inter">Visual Communications & Packaging</p>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="art-item group relative bg-base-card rounded-lg overflow-hidden border border-gold-accent/30 shadow-gothic cursor-pointer" data-category="fine-art" onclick="openModal('Macabre Still Life Painting', 'Oil on canvas exploring memento mori themes, skeletal remains, and preserved botanical specimens in moody chiaroscuro lighting.', 'https://placehold.co/800x600/1a2420/dfcbb0?text=Macabre+Still+Life')">
+                    <div class="aspect-video overflow-hidden relative">
+                        <img src="https://placehold.co/600x400/1a2420/dfcbb0?text=Macabre+Still+Life" alt="Macabre Still Life Painting" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-base-dark/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="px-4 py-2 rounded bg-base-card border border-gold-accent text-gold-accent font-cinzel text-xs uppercase tracking-widest">View Details</span>
+                        </div>
+                    </div>
+                    <div class="p-5 space-y-2">
+                        <span class="text-xs uppercase font-cinzel text-gold-accent tracking-wider">Fine Art</span>
+                        <h3 class="font-gothic text-xl text-parchment-light group-hover:text-gold-accent transition-colors">Macabre Still Life Painting</h3>
+                        <p class="text-xs text-parchment/70 font-inter">Oil on Canvas</p>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="art-item group relative bg-base-card rounded-lg overflow-hidden border border-gold-accent/30 shadow-gothic cursor-pointer" data-category="printmaking" onclick="openModal('Skeletal & Neurological Studies', 'Detailed linocut series mapping anatomical cross-sections with ornamental gothic framing elements.', 'https://placehold.co/800x600/1a2420/dfcbb0?text=Anatomical+Series')">
+                    <div class="aspect-video overflow-hidden relative">
+                        <img src="https://placehold.co/600x400/1a2420/dfcbb0?text=Anatomical+Series" alt="Skeletal & Neurological Studies" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-base-dark/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="px-4 py-2 rounded bg-base-card border border-gold-accent text-gold-accent font-cinzel text-xs uppercase tracking-widest">View Details</span>
+                        </div>
+                    </div>
+                    <div class="p-5 space-y-2">
+                        <span class="text-xs uppercase font-cinzel text-gold-accent tracking-wider">Printmaking & Anatomy</span>
+                        <h3 class="font-gothic text-xl text-parchment-light group-hover:text-gold-accent transition-colors">Skeletal & Neurological Studies</h3>
+                        <p class="text-xs text-parchment/70 font-inter">Linocut Print Series</p>
+                    </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="art-item group relative bg-base-card rounded-lg overflow-hidden border border-gold-accent/30 shadow-gothic cursor-pointer" data-category="design" onclick="openModal('Femme Fatale Publication Editorial', 'Layout, typography curation, and editorial design for independent underground art publications.', 'https://placehold.co/800x600/1a2420/dfcbb0?text=Editorial+Design')">
+                    <div class="aspect-video overflow-hidden relative">
+                        <img src="https://placehold.co/600x400/1a2420/dfcbb0?text=Editorial+Design" alt="Femme Fatale Publication Editorial" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-base-dark/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="px-4 py-2 rounded bg-base-card border border-gold-accent text-gold-accent font-cinzel text-xs uppercase tracking-widest">View Details</span>
+                        </div>
+                    </div>
+                    <div class="p-5 space-y-2">
+                        <span class="text-xs uppercase font-cinzel text-gold-accent tracking-wider">Digital Design & Pubs</span>
+                        <h3 class="font-gothic text-xl text-parchment-light group-hover:text-gold-accent transition-colors">Editorial Publication Layout</h3>
+                        <p class="text-xs text-parchment/70 font-inter">Visual Communications & Typography</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tattoos" class="py-24 px-4 sm:px-6 lg:px-8 bg-base-card/40 border-t border-gold-accent/20">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-xs uppercase font-cinzel text-gold-accent tracking-widest">Destiny Tattoos & Femme Fatale</span>
+                <h2 class="font-gothic text-4xl sm:text-5xl text-parchment-light">Tattooing & Studio Atmosphere</h2>
+                <div class="w-24 h-0.5 bg-gold-accent/50 mx-auto"></div>
+                <p class="text-parchment/80 text-sm font-inter">
+                    Operating out of Femme Fatale Tattoo Collective at 529c Princess Ave, Medicine Hat, AB. Specializing in bespoke dark illustrative, realism, and gothic aesthetics.
+                </p>
+            </div>
+
+            <!-- Tattoo Styles Badges -->
+            <div class="flex flex-wrap justify-center gap-3 mb-16">
+                <span class="px-4 py-2 rounded-full border border-gold-accent/40 bg-base-dark text-parchment text-xs font-cinzel tracking-wider">Realism & Portraiture</span>
+                <span class="px-4 py-2 rounded-full border border-gold-accent/40 bg-base-dark text-parchment text-xs font-cinzel tracking-wider">Fine-Line Botanicals</span>
+                <span class="px-4 py-2 rounded-full border border-gold-accent/40 bg-base-dark text-parchment text-xs font-cinzel tracking-wider">Macabre & Dark Art</span>
+                <span class="px-4 py-2 rounded-full border border-gold-accent/40 bg-base-dark text-parchment text-xs font-cinzel tracking-wider">Neo-Traditional</span>
+                <span class="px-4 py-2 rounded-full border border-gold-accent/40 bg-base-dark text-parchment text-xs font-cinzel tracking-wider">Grayscale Realism</span>
+                <span class="px-4 py-2 rounded-full border border-gold-accent/40 bg-base-dark text-parchment text-xs font-cinzel tracking-wider">Custom Illustrative</span>
+            </div>
+
+            <!-- Tattoo Gallery Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="group relative rounded-lg overflow-hidden border border-gold-accent/40 shadow-gothic aspect-square">
+                    <img src="https://placehold.co/500x500/1a2420/dfcbb0?text=Macabre+Sleeve" alt="Tattoo work" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-base-dark/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
+                        <span class="font-gothic text-xl text-parchment-light">Dark Illustrative Sleeve</span>
+                        <span class="text-xs text-gold-accent font-cinzel">Custom Freehand & Stenciled</span>
+                    </div>
+                </div>
+
+                <div class="group relative rounded-lg overflow-hidden border border-gold-accent/40 shadow-gothic aspect-square">
+                    <img src="https://placehold.co/500x500/1a2420/dfcbb0?text=Portrait+Realism" alt="Tattoo work" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-base-dark/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
+                        <span class="font-gothic text-xl text-parchment-light">Grayscale Portrait Realism</span>
+                        <span class="text-xs text-gold-accent font-cinzel">Detailed Facial Rendering</span>
+                    </div>
+                </div>
+
+                <div class="group relative rounded-lg overflow-hidden border border-gold-accent/40 shadow-gothic aspect-square">
+                    <img src="https://placehold.co/500x500/1a2420/dfcbb0?text=Fine-Line+Botanical" alt="Tattoo work" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-base-dark/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
+                        <span class="font-gothic text-xl text-parchment-light">Fine-Line Botanical Specimen</span>
+                        <span class="text-xs text-gold-accent font-cinzel">Delicate Needle Work</span>
+                    </div>
+                </div>
+
+                <div class="group relative rounded-lg overflow-hidden border border-gold-accent/40 shadow-gothic aspect-square">
+                    <img src="https://placehold.co/500x500/1a2420/dfcbb0?text=Neo-Traditional" alt="Tattoo work" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-base-dark/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
+                        <span class="font-gothic text-xl text-parchment-light">Gothic Neo-Traditional</span>
+                        <span class="text-xs text-gold-accent font-cinzel">Bold Lines & Deep Hues</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Studio Callout Banner -->
+            <div class="mt-16 bg-base-dark border border-gold-accent/50 rounded-lg p-8 shadow-gothic grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                <div class="space-y-2 lg:col-span-2">
+                    <span class="text-xs uppercase font-cinzel text-gold-accent tracking-widest">Femme Fatale Tattoo Collective</span>
+                    <h3 class="font-gothic text-3xl text-parchment-light">A Sanctuary for Inclusive Body Art in Medicine Hat</h3>
+                    <p class="text-parchment/80 text-sm leading-relaxed font-inter">
+                        Our studio is designed to be a peaceful, private, and empowering sanctuary. We prioritize sterilization, hygiene, client comfort, and a judgment-free atmosphere for all body modifications.
+                    </p>
+                </div>
+                <div class="text-center lg:text-right">
+                    <a href="#contact" class="inline-block px-8 py-3.5 rounded bg-base-card border border-gold-accent text-gold-accent font-cinzel text-xs uppercase tracking-widest hover:bg-gold-accent hover:text-base-dark transition-all shadow-gothic">
+                        Inquire & Book Session
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 px-4 sm:px-6 lg:px-8 relative gothic-pattern">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-xs uppercase font-cinzel text-gold-accent tracking-widest">Get In Touch</span>
+                <h2 class="font-gothic text-4xl sm:text-5xl text-parchment-light">Consultations & Booking Inquiries</h2>
+                <div class="w-24 h-0.5 bg-gold-accent/50 mx-auto"></div>
+                <p class="text-parchment/80 text-sm font-inter">
+                    Ready to bring your vision to life? Fill out the consultation inquiry below or visit the studio in Medicine Hat.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <!-- Contact Info & Location Details -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div class="bg-base-card border border-gold-accent/40 rounded-lg p-8 shadow-gothic space-y-6">
+                        <h3 class="font-gothic text-2xl text-parchment-light border-b border-gold-accent/30 pb-4">Studio Information</h3>
+                        
+                        <div class="space-y-4 text-sm font-inter">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded bg-base-dark border border-gold-accent/50 flex items-center justify-center shrink-0 text-gold-accent">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <strong class="block font-cinzel text-parchment text-xs uppercase tracking-wider">Location</strong>
+                                    <span class="text-parchment/80">Femme Fatale Tattoo Collective<br>529c Princess Ave, Medicine Hat, AB</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded bg-base-dark border border-gold-accent/50 flex items-center justify-center shrink-0 text-gold-accent">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <strong class="block font-cinzel text-parchment text-xs uppercase tracking-wider">Phone</strong>
+                                    <span class="text-parchment/80">(403) 928-3775</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded bg-base-dark border border-gold-accent/50 flex items-center justify-center shrink-0 text-gold-accent">
+                                    <i class="fa-solid fa-clock"></i>
+                                </div>
+                                <div>
+                                    <strong class="block font-cinzel text-parchment text-xs uppercase tracking-wider">Hours</strong>
+                                    <span class="text-parchment/80">Tuesday – Saturday: 11:00 AM – 6:00 PM<br>Sunday & Monday: Closed</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded bg-base-dark border border-gold-accent/50 flex items-center justify-center shrink-0 text-gold-accent">
+                                    <i class="fa-solid fa-at"></i>
+                                </div>
+                                <div>
+                                    <strong class="block font-cinzel text-parchment text-xs uppercase tracking-wider">Socials & Instagram</strong>
+                                    <span class="text-gold-accent">@destinytattoos / @femmefataletattoos</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded bg-base-dark border border-gold-accent/30 text-xs text-parchment/80 leading-relaxed font-inter">
+                            <i class="fa-solid fa-circle-exclamation text-gold-accent mr-1"></i> Clients must be 18+ with valid photo ID. Gift certificates available in-studio and online.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Booking / Inquiry Form -->
+                <div class="lg:col-span-7">
+                    <form id="booking-form" onsubmit="handleFormSubmit(event)" class="bg-base-card border border-gold-accent/40 rounded-lg p-8 shadow-gothic space-y-6">
+                        <h3 class="font-gothic text-2xl text-parchment-light border-b border-gold-accent/30 pb-4">Consultation & Booking Inquiry</h3>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="block font-cinzel text-xs uppercase tracking-wider text-gold-accent">Your Full Name *</label>
+                                <input type="text" required class="w-full bg-base-dark border border-gold-accent/40 rounded p-3 text-parchment focus:outline-none focus:border-gold-accent text-sm font-inter" placeholder="e.g. Morgan Vance">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="block font-cinzel text-xs uppercase tracking-wider text-gold-accent">Email Address *</label>
+                                <input type="email" required class="w-full bg-base-dark border border-gold-accent/40 rounded p-3 text-parchment focus:outline-none focus:border-gold-accent text-sm font-inter" placeholder="e.g. morgan@example.com">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="block font-cinzel text-xs uppercase tracking-wider text-gold-accent">Phone Number</label>
+                                <input type="tel" class="w-full bg-base-dark border border-gold-accent/40 rounded p-3 text-parchment focus:outline-none focus:border-gold-accent text-sm font-inter" placeholder="(403) 000-0000">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="block font-cinzel text-xs uppercase tracking-wider text-gold-accent">Project Type *</label>
+                                <select required class="w-full bg-base-dark border border-gold-accent/40 rounded p-3 text-parchment focus:outline-none focus:border-gold-accent text-sm font-inter">
+                                    <option value="">Select Tattoo / Art Style</option>
+                                    <option value="realism">Realism & Portraiture</option>
+                                    <option value="botanical">Fine-Line Botanicals</option>
+                                    <option value="macabre">Macabre & Dark Art</option>
+                                    <option value="neotraditional">Neo-Traditional</option>
+                                    <option value="custom">Custom Illustrative / Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="block font-cinzel text-xs uppercase tracking-wider text-gold-accent">Placement on Body & Estimated Size (Inches)</label>
+                            <input type="text" class="w-full bg-base-dark border border-gold-accent/40 rounded p-3 text-parchment focus:outline-none focus:border-gold-accent text-sm font-inter" placeholder="e.g. Inner forearm, approx. 6x4 inches">
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="block font-cinzel text-xs uppercase tracking-wider text-gold-accent">Project Description & References *</label>
+                            <textarea required rows="4" class="w-full bg-base-dark border border-gold-accent/40 rounded p-3 text-parchment focus:outline-none focus:border-gold-accent text-sm font-inter resize-none" placeholder="Describe your concept, preferred imagery (skulls, botanicals, portraits), black-and-grey vs color, etc."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded bg-base-card border border-gold-accent text-gold-accent font-cinzel text-xs uppercase tracking-widest hover:bg-gold-accent hover:text-base-dark transition-all shadow-gothic font-semibold">
+                            Submit Consultation Request
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-base-dark border-t border-gold-accent/30 py-12 px-4 sm:px-6 lg:px-8 text-center text-xs text-parchment/70 font-inter">
+        <div class="max-w-7xl mx-auto space-y-6">
+            <div class="flex items-center justify-center space-x-3">
+                <span class="w-8 h-px bg-gold-accent/50"></span>
+                <i class="fa-solid fa-skull text-gold-accent"></i>
+                <span class="w-8 h-px bg-gold-accent/50"></span>
+            </div>
+
+            <div class="font-gothic text-xl text-parchment-light">
+                Destiny Barreira • Destiny Tattoos • Femme Fatale Tattoo Collective
+            </div>
+
+            <p class="max-w-md mx-auto text-parchment/60">
+                529c Princess Ave, Medicine Hat, Alberta, Canada. Bachelor of Applied Arts in Visual Communications & Fine Art and Design.
+            </p>
+
+            <div class="flex justify-center space-x-6 text-base text-gold-accent pt-2">
+                <a href="https://instagram.com" target="_blank" rel="noopener" class="hover:text-white transition-colors" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://facebook.com" target="_blank" rel="noopener" class="hover:text-white transition-colors" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                <a href="mailto:destiny@destinytattoos.com" class="hover:text-white transition-colors" title="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+
+            <div class="border-t border-gold-accent/20 pt-6 text-parchment/50">
+                &copy; <span id="current-year">2026</span> Destiny Barreira. All Rights Reserved. Designed with gothic elegance & structural precision.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Art Modal -->
+    <div id="art-modal" class="fixed inset-0 z-50 hidden bg-base-dark/95 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-base-card border-2 border-gold-accent rounded-lg max-w-2xl w-full p-6 sm:p-8 shadow-gothic relative space-y-6">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gold-accent hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="aspect-video rounded overflow-hidden border border-gold-accent/40">
+                <img id="modal-img" src="" alt="Artwork Preview" class="w-full h-full object-cover">
+            </div>
+            <div class="space-y-3">
+                <h3 id="modal-title" class="font-gothic text-2xl text-parchment-light"></h3>
+                <p id="modal-desc" class="text-parchment/80 text-sm leading-relaxed font-inter"></p>
+            </div>
+            <div class="text-right">
+                <button onclick="closeModal()" class="px-6 py-2 rounded border border-gold-accent bg-base-dark text-gold-accent font-cinzel text-xs uppercase tracking-widest">Close View</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Notification Box (Replacing alert) -->
+    <div id="success-modal" class="fixed inset-0 z-50 hidden bg-base-dark/95 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-base-card border-2 border-gold-accent rounded-lg max-w-md w-full p-8 shadow-gothic text-center space-y-6">
+            <div class="w-16 h-16 mx-auto rounded-full bg-base-dark border border-gold-accent flex items-center justify-center text-gold-accent text-2xl shadow-gold-glow">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <div class="space-y-2">
+                <h3 class="font-gothic text-3xl text-parchment-light">Inquiry Received</h3>
+                <p class="text-parchment/80 text-sm font-inter">
+                    Thank you for reaching out to Destiny Tattoos. Your consultation request has been successfully transmitted. Destiny or the studio team will review your project details and get back to you shortly!
+                </p>
+            </div>
+            <button onclick="closeSuccessModal()" class="w-full py-3 rounded border border-gold-accent bg-base-dark text-gold-accent font-cinzel text-xs uppercase tracking-widest shadow-gothic">
+                Return to Website
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Set dynamic year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Gallery Filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const artItems = document.querySelectorAll('.art-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active styling from all buttons
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-base-card', 'border-gold-accent', 'text-gold-accent');
+                    b.classList.add('bg-base-dark', 'border-gold-accent/40', 'text-parchment');
+                });
+                // Add active styling to clicked button
+                btn.classList.remove('bg-base-dark', 'border-gold-accent/40', 'text-parchment');
+                btn.classList.add('bg-base-card', 'border-gold-accent', 'text-gold-accent');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                artItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Modal Functions
+        function openModal(title, desc, imgSrc) {
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('modal-desc').textContent = desc;
+            document.getElementById('modal-img').src = imgSrc;
+            document.getElementById('art-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('art-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Form submission handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            document.getElementById('success-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            event.target.reset();
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('success-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+    </script>
+</body>
+</html>
